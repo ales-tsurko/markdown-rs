@@ -18,7 +18,6 @@ pub type Stop = (usize, usize);
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(rename_all = "lowercase")
 )]
 pub enum ReferenceKind {
     /// The reference is implicit, its identifier inferred from its content.
@@ -36,7 +35,7 @@ pub enum ReferenceKind {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(rename_all = "lowercase")
+
 )]
 pub enum AlignKind {
     /// Left alignment.
@@ -86,7 +85,6 @@ pub enum AlignKind {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "type")
 )]
 pub enum Node {
     // Document:
@@ -446,7 +444,6 @@ impl Node {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxJsxExpressionAttribute")
 )]
 pub enum AttributeContent {
     /// JSX expression.
@@ -469,7 +466,6 @@ pub enum AttributeContent {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxJsxAttributeValueExpression")
 )]
 pub struct AttributeValueExpression {
     pub value: String,
@@ -481,7 +477,6 @@ pub struct AttributeValueExpression {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "type")
 )]
 pub enum AttributeValue {
     /// Expression value.
@@ -497,7 +492,6 @@ pub enum AttributeValue {
     /// > | <a b="c" />
     ///          ^^^
     /// ```
-    #[cfg_attr(feature = "json", serde(rename = "literal"))]
     Literal(String),
 }
 
@@ -511,7 +505,6 @@ pub enum AttributeValue {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "root")
 )]
 pub struct Root {
     // Parent.
@@ -531,7 +524,6 @@ pub struct Root {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "paragraph")
 )]
 pub struct Paragraph {
     // Parent.
@@ -551,7 +543,6 @@ pub struct Paragraph {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "heading")
 )]
 pub struct Heading {
     // Parent.
@@ -574,7 +565,6 @@ pub struct Heading {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "thematicBreak")
 )]
 pub struct ThematicBreak {
     // Void.
@@ -592,7 +582,6 @@ pub struct ThematicBreak {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "blockquote")
 )]
 pub struct BlockQuote {
     // Parent.
@@ -612,7 +601,6 @@ pub struct BlockQuote {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "list")
 )]
 pub struct List {
     // Parent.
@@ -641,7 +629,6 @@ pub struct List {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "listItem")
 )]
 pub struct ListItem {
     // Parent.
@@ -668,7 +655,6 @@ pub struct ListItem {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "html")
 )]
 pub struct Html {
     // Text.
@@ -692,7 +678,6 @@ pub struct Html {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "code")
 )]
 pub struct Code {
     // Text.
@@ -721,7 +706,6 @@ pub struct Code {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "math")
 )]
 pub struct Math {
     // Text.
@@ -744,7 +728,6 @@ pub struct Math {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "definition")
 )]
 pub struct Definition {
     // Void.
@@ -781,7 +764,6 @@ pub struct Definition {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "text")
 )]
 pub struct Text {
     // Text.
@@ -801,7 +783,6 @@ pub struct Text {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "emphasis")
 )]
 pub struct Emphasis {
     // Parent.
@@ -821,7 +802,6 @@ pub struct Emphasis {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "strong")
 )]
 pub struct Strong {
     // Parent.
@@ -841,7 +821,6 @@ pub struct Strong {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "inlineCode")
 )]
 pub struct InlineCode {
     // Text.
@@ -861,7 +840,6 @@ pub struct InlineCode {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "inlineMath")
 )]
 pub struct InlineMath {
     // Text.
@@ -882,7 +860,6 @@ pub struct InlineMath {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "break")
 )]
 pub struct Break {
     // Void.
@@ -900,7 +877,6 @@ pub struct Break {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "link")
 )]
 pub struct Link {
     // Parent.
@@ -926,7 +902,6 @@ pub struct Link {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "image")
 )]
 pub struct Image {
     // Void.
@@ -954,7 +929,6 @@ pub struct Image {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "linkReference")
 )]
 pub struct LinkReference {
     // Parent.
@@ -964,7 +938,6 @@ pub struct LinkReference {
     pub position: Option<Position>,
     // Reference.
     /// Explicitness of a reference.
-    #[cfg_attr(feature = "json", serde(rename = "referenceType"))]
     pub reference_kind: ReferenceKind,
     // Association.
     /// Value that can match another node.
@@ -991,7 +964,6 @@ pub struct LinkReference {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "imageReference")
 )]
 pub struct ImageReference {
     // Void.
@@ -1003,7 +975,6 @@ pub struct ImageReference {
     pub alt: String,
     // Reference.
     /// Explicitness of a reference.
-    #[cfg_attr(feature = "json", serde(rename = "referenceType"))]
     pub reference_kind: ReferenceKind,
     // Association.
     /// Value that can match another node.
@@ -1030,7 +1001,6 @@ pub struct ImageReference {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "footnoteDefinition")
 )]
 pub struct FootnoteDefinition {
     // Parent.
@@ -1063,7 +1033,6 @@ pub struct FootnoteDefinition {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "footnoteReference")
 )]
 pub struct FootnoteReference {
     // Void.
@@ -1096,7 +1065,6 @@ pub struct FootnoteReference {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "table")
 )]
 pub struct Table {
     // Parent.
@@ -1119,7 +1087,6 @@ pub struct Table {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "tableRow")
 )]
 pub struct TableRow {
     // Parent.
@@ -1139,7 +1106,7 @@ pub struct TableRow {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "tableCell")
+
 )]
 pub struct TableCell {
     // Parent.
@@ -1159,7 +1126,7 @@ pub struct TableCell {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "delete")
+
 )]
 pub struct Delete {
     // Parent.
@@ -1183,7 +1150,7 @@ pub struct Delete {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "yaml")
+
 )]
 pub struct Yaml {
     // Void.
@@ -1207,7 +1174,7 @@ pub struct Yaml {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "toml")
+
 )]
 pub struct Toml {
     // Void.
@@ -1227,7 +1194,7 @@ pub struct Toml {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxjsEsm")
+
 )]
 pub struct MdxjsEsm {
     // Literal.
@@ -1250,7 +1217,7 @@ pub struct MdxjsEsm {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxFlowExpression")
+
 )]
 pub struct MdxFlowExpression {
     // Literal.
@@ -1273,7 +1240,7 @@ pub struct MdxFlowExpression {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxTextExpression")
+
 )]
 pub struct MdxTextExpression {
     // Literal.
@@ -1296,7 +1263,7 @@ pub struct MdxTextExpression {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxJsxFlowElement")
+
 )]
 pub struct MdxJsxFlowElement {
     // Parent.
@@ -1323,7 +1290,7 @@ pub struct MdxJsxFlowElement {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxJsxTextElement")
+
 )]
 pub struct MdxJsxTextElement {
     // Parent.
@@ -1350,7 +1317,7 @@ pub struct MdxJsxTextElement {
 #[cfg_attr(
     feature = "json",
     derive(serde::Serialize, serde::Deserialize),
-    serde(tag = "type", rename = "mdxJsxAttribute")
+
 )]
 pub struct MdxJsxAttribute {
     // Void.
